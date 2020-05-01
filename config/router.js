@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const test = require('../controllers/test')
+const getMetaData = require('../controllers/getMetaData')
 
 router.route('/')
-  .post(test.rpTest)
+  .post(getMetaData.checker)
   
 
 module.exports = router
