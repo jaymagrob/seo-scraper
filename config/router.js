@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const getMetaData = require('../controllers/getMetaData')
 
-router.route('/')
+router.route('/api')
   .post(getMetaData.checker)
   
 

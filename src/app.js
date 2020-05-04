@@ -14,7 +14,7 @@ class App extends React.Component{
 
   handleOnSubmit = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3000/', { 
+    axios.post('http://localhost:8000/api', { 
     
       websites: this.state.textArea
     
