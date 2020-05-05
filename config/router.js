@@ -4,6 +4,5 @@ const getMetaData = require('../controllers/getMetaData')
 
 router.route('/api')
   .post(getMetaData.checker)
-  
 
 module.exports = router

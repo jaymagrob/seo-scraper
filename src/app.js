@@ -14,13 +14,11 @@ class App extends React.Component{
 
   handleOnSubmit = (e) => {
     e.preventDefault()
+    console.log(this.state.textArea)
     axios.post('http://localhost:8000/api', { 
-    
-      websites: this.state.textArea
-    
+      website: this.state.textArea
     })
       .then(res => {
-        console.log(res)
         console.log(res.data)
       })
       .catch(err => {
