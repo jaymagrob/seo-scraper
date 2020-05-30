@@ -4,7 +4,11 @@ import axios from 'axios'
 
 class App extends React.Component{
   state = {
-    textArea: 'Add URls'
+    textArea: 'https://johnmagnusrobertson.com',
+    returnedData: {
+      title: '',
+      description: ''
+    }
   }
 
   handleTextArea = (e) => {
@@ -14,12 +18,13 @@ class App extends React.Component{
 
   handleOnSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state.textArea)
     axios.post('http://localhost:8000/api', { 
       website: this.state.textArea
     })
       .then(res => {
-        console.log(res.data)
+        const returnedData = { ...this.state.returnedData, ...res.data.data }
+        console.log(returnedData)
+        this.setState({ returnedData })
       })
       .catch(err => {
         console.log(err)
@@ -27,6 +32,7 @@ class App extends React.Component{
   }
 
   render() {
+    console.log(this.state)
     return (
       <>
         <h1>SEO Scraper</h1>
@@ -41,6 +47,8 @@ class App extends React.Component{
           </textarea>
           <input type='submit'/>
         </form>
+        <h2>Title</h2>
+        <p>{this.state.returnedData.title}</p>
       </>
     )
   }
